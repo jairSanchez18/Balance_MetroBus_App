@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textcolor">#5870cb</color>
+    <color name="textcolor_info">#A68C8484</color>
+    <dimen name="subtext">12dp</dimen>
+    <dimen name="maintext">16dp</dimen>
+    <dimen name="subtext_adapter">16dp</dimen>
+    <dimen name="subtext_info">10dp</dimen>
+    <dimen name="maintext_adapter">20dp</dimen>
+    <color name="backcolor_transparent">#c0cfff</color>
+    <color name="backcolor_solid">#5870cb</color>
+    <color name="progress_color">#5870cb</color>
+</resources>

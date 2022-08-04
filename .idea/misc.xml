@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/drawable/customprogressbar.xml" value="0.1" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/drawable/design_lstcard.xml" value="0.155" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/drawable/design_refreshbtn.xml" value="0.134" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/drawable/desing_bg.xml" value="0.149" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/drawable/icon_add_btn.xml" value="0.155" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/adapter_template.xml" value="0.25" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/alert2_template.xml" value="0.2" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/alert_template.xml" value="0.19692307692307692" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/charginalert_template.xml" value="0.2" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/chargingalert_template.xml" value="0.33" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/connectionalert_template.xml" value="0.2" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/internet_template.xml" value="0.2" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/nointernet_template.xml" value="0.2" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/updatealert_template.xml" value="0.16209371042634022" />
+        <entry key="..\:/Users/jairs/OneDrive/Documentos/AndroidStudioProjects/Balance_MetroBus/app/src/main/res/layout/updategalert_template.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

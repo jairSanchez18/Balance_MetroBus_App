@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/design_lstcard"
+    android:orientation="horizontal"
+    android:padding="10sp">
+
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lblCardname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="CardName"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/maintext"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblCardnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:padding="2dp"
+            android:text="CardNumber"
+            android:textSize="@dimen/subtext" />
+
+        <TextView
+            android:id="@+id/lblCardstatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:padding="2dp"
+            android:text="CardStatus"
+            android:textSize="@dimen/subtext" />
+
+        <TextView
+            android:id="@+id/lblCardtype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:padding="2dp"
+            android:text="CardType"
+            android:textSize="@dimen/subtext" />
+
+        <TextView
+            android:id="@+id/lblCardBalance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:padding="2dp"
+            android:text="CardBalance"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/maintext"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgCard"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"/>
+
+        <ImageButton
+            android:id="@+id/btnRefreshcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/design_refreshbtn"
+            android:src="@drawable/ic_baseline_refresh" />
+
+    </LinearLayout>
+
+</LinearLayout>

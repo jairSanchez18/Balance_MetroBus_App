@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10sp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Añadir Tarjeta"
+        android:textSize="@dimen/maintext_adapter"
+        android:textColor="@color/textcolor"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/cardName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el nombre de su tarjeta"
+        android:inputType="text"
+        android:textSize="@dimen/subtext_adapter"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/cardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el Numero de su tarjeta"
+        android:inputType="number"
+        android:textSize="@dimen/subtext_adapter"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

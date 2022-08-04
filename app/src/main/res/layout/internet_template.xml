@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/delete_information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="**Mantenga presionada la tarjeta para eliminar**"
+        android:textAlignment="center"
+        android:textColor="@color/textcolor_info"
+        android:textSize="@dimen/subtext_info"
+        android:visibility="invisible" />
+
+    <ListView
+        android:id="@+id/lstCards"
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:layout_below="@+id/delete_information"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/cardview_light_background"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"
+        android:drawSelectorOnTop="true" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:src="@drawable/icon_add_btn"
+        app:maxImageSize="65sp" />
+
+
+</RelativeLayout>
