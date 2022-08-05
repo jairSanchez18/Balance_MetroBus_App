@@ -1,5 +1,6 @@
 package com.example.balance_metrobus;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -26,7 +27,11 @@ import com.example.balance_metrobus.Alerts.ConnectionAlert;
 import com.example.balance_metrobus.Alerts.DeleteAlert;
 import com.example.balance_metrobus.Interface.Refresh;
 import com.example.balance_metrobus.Models.CardInformation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONObject;
 
@@ -36,6 +41,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements Refresh {
 
+    private FirebaseAnalytics mFirebaseAnalytics;
     ListView lstcard;
     FloatingActionButton btnadd, btnrefresh;
     String URL = "https://saldometrobus.yizack.com/api/0/tarjeta/";
@@ -59,6 +65,22 @@ public class MainActivity extends AppCompatActivity implements Refresh {
 
         ShowCards();
         DeleteCard();
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+
+                        String token = task.getResult();
+                        System.out.println(token);
+                    }
+                });
     }
 
     private void AddNewCard() {
@@ -115,6 +137,13 @@ public class MainActivity extends AppCompatActivity implements Refresh {
                             Toast.makeText(getApplicationContext(), "tarjeta añadida: " + jsonObject.getString("numero"), Toast.LENGTH_SHORT).show();
                             chargingAlert.dismiss();
                             ShowCards();
+
+
+                            Bundle bundle = new Bundle();
+                            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, jsonObject.getString("numero"));
+                            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name);
+                            bundle.putString("insert", "yes");
+                            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                         } else {
                             Toast.makeText(MainActivity.this, "Ocurrio un error al guardar la tarjeta en la base de datos", Toast.LENGTH_SHORT).show();
                             chargingAlert.dismiss();
