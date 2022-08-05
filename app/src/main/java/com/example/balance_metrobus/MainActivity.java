@@ -2,14 +2,10 @@ package com.example.balance_metrobus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -30,7 +26,6 @@ import com.example.balance_metrobus.Alerts.ConnectionAlert;
 import com.example.balance_metrobus.Alerts.DeleteAlert;
 import com.example.balance_metrobus.Interface.Refresh;
 import com.example.balance_metrobus.Models.CardInformation;
-import com.example.balance_metrobus.Notification.MyBroadcastReceiver;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONObject;
@@ -64,15 +59,6 @@ public class MainActivity extends AppCompatActivity implements Refresh {
 
         ShowCards();
         DeleteCard();
-        Notification();
-    }
-
-    private void Notification() {
-        Intent i = new Intent(MainActivity.this, MyBroadcastReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, i, 0);
-        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
-        long updateInterval = AlarmManager.INTERVAL_DAY * 2;
-        am.setRepeating(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime() + updateInterval, updateInterval, pendingIntent);
     }
 
     private void AddNewCard() {
