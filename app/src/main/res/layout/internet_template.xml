@@ -21,7 +21,7 @@
     <ListView
         android:id="@+id/lstCards"
         android:layout_width="match_parent"
-        android:layout_height="630dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/delete_information"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -30,6 +30,15 @@
         android:dividerHeight="10dp"
         android:drawSelectorOnTop="true" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnQR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/btnAdd"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/scanner_qr"
+        app:maxImageSize="65sp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAdd"
