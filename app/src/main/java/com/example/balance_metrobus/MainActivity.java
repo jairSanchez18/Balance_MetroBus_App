@@ -296,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements Refresh {
                 intentIntegrator.setBarcodeImageEnabled(true);
                 intentIntegrator.setBeepEnabled(true);
                 intentIntegrator.setCameraId(0);
-                intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+                intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 intentIntegrator.initiateScan();
             }
         });
