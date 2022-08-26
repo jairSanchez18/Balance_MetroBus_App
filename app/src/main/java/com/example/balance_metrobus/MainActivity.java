@@ -1,9 +1,13 @@
 package com.example.balance_metrobus;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -32,6 +36,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
 
 import org.json.JSONObject;
 
@@ -43,13 +51,13 @@ public class MainActivity extends AppCompatActivity implements Refresh {
 
     private FirebaseAnalytics mFirebaseAnalytics;
     ListView lstcard;
-    FloatingActionButton btnadd, btnrefresh;
+    FloatingActionButton btnadd, btnrefresh, btnQR;
     String URL = "https://saldometrobus.yizack.com/api/0/tarjeta/";
     ChargingAlert chargingAlert = new ChargingAlert();
     View internet, nointernet;
     List<CardInformation> cardInformationList;
     TextView delete_information;
-    String number;
+    String number, numberQR;
     ImageButton btnrefreshcard;
     AdapterCard adapterCard;
 
@@ -65,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements Refresh {
 
         ShowCards();
         DeleteCard();
+        ScanQR();
 
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
@@ -196,6 +205,7 @@ public class MainActivity extends AppCompatActivity implements Refresh {
         nointernet = (View) findViewById(R.id.nointernet);
         delete_information = (TextView) findViewById(R.id.delete_information);
         btnrefreshcard = (ImageButton) findViewById(R.id.btnRefreshcard);
+        btnQR = (FloatingActionButton) findViewById(R.id.btnQR);
     }
 
     private void ValidateInternetConnection() {
@@ -263,7 +273,6 @@ public class MainActivity extends AppCompatActivity implements Refresh {
         } else {
             Toast.makeText(this, "Esta tarjeta ya esta agregada", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
@@ -276,5 +285,32 @@ public class MainActivity extends AppCompatActivity implements Refresh {
     private boolean ValidateCardRepeat() {
         CardInformation cardInformation = new CardInformation();
         return cardInformation.ValidateCards(this, number);
+    }
+
+    private void ScanQR(){
+        btnQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentIntegrator intentIntegrator = new IntentIntegrator(MainActivity.this);
+                intentIntegrator.setOrientationLocked(false);
+                intentIntegrator.setBarcodeImageEnabled(true);
+                intentIntegrator.setBeepEnabled(true);
+                intentIntegrator.setCameraId(0);
+                intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                intentIntegrator.initiateScan();
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(intentResult != null){
+            if (intentResult.getContents() != null){
+                Toast.makeText(this, ""+intentResult.getContents(), Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
